@@ -100,6 +100,10 @@ function love.load()
         ['music'] = love.audio.newSource('marios_way.mp3', 'static')
     }
 
+    for _, s in pairs(gSounds) do
+        s:setVolume(0)
+    end
+
     -- kick off music
     gSounds['music']:setLooping(true)
     gSounds['music']:play()
@@ -120,7 +124,8 @@ function love.load()
         ['title'] = function() return TitleScreenState() end,
         ['countdown'] = function() return CountdownState() end,
         ['play'] = function() return PlayState() end,
-        ['score'] = function() return ScoreState() end
+        ['score'] = function() return ScoreState() end,
+        ['pause'] = function() return PauseState() end
     }
     gStateMachine:change('title')
 
