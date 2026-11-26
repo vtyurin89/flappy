@@ -10,7 +10,9 @@
 
 Bird = Class{}
 
-local GRAVITY = 980
+-- local GRAVITY = 980
+local GRAVITY = 900
+
 
 function Bird:init()
     self.image = gTextures['bird']
@@ -45,7 +47,7 @@ function Bird:update(dt)
     self.dy = self.dy + GRAVITY * dt
 
     if love.keyboard.wasPressed('space') or love.mouse.wasPressed(1) then
-        self.dy = -300
+        self.dy = -250
         gSounds['jump']:play()
     end
 

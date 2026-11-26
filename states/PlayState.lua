@@ -22,7 +22,7 @@ function PlayState:init()
     self.pipePairs = {}
     self.timer = 0
     self.score = 0
-    self.spawnInterval = math.random(15, 25) / 10
+    self.spawnInterval = math.random(17, 22) / 10
 
     -- initialize our last recorded Y value for a gap placement to base other gaps off of
     self.lastY = -PIPE_HEIGHT + math.random(80) + 20
