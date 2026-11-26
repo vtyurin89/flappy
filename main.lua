@@ -40,6 +40,7 @@ require 'states.CountdownState'
 require 'states.PlayState'
 require 'states.ScoreState'
 require 'states.TitleScreenState'
+require 'states.PauseState'
 
 require 'Bird'
 require 'Pipe'
@@ -111,7 +112,7 @@ function love.load()
     -- initialize window
     love.window.setMode(WINDOW_WIDTH, WINDOW_HEIGHT, {
         vsync = true,
-        fullscreen = true,
+        fullscreen = false,
         resizable = true
     })
     -- love.window.setFullscreen(true, 'exclusive')
@@ -144,9 +145,9 @@ function love.keypressed(key)
     -- add to our table of keys pressed this frame
     love.keyboard.keysPressed[key] = true
 
-    if key == 'escape' then
-        love.event.quit()
-    end
+    -- if key == 'escape' then
+    --     love.event.quit()
+    -- end
 end
 
 --[[

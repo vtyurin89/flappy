@@ -12,11 +12,14 @@ function StateMachine:init(states)
 	self.current = self.empty
 end
 
-function StateMachine:change(stateName, enterParams)
-	assert(self.states[stateName]) -- state must exist!
-	self.current:exit()
-	self.current = self.states[stateName]()
-	self.current:enter(enterParams)
+function StateMachine:change(state, enterParams)
+    if type(state) == 'string' then
+        assert(self.states[state])
+        state = self.states[state]()
+    end
+    self.current:exit()
+    self.current = state
+    self.current:enter(enterParams)
 end
 
 function StateMachine:update(dt)

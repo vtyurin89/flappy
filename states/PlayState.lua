@@ -101,6 +101,10 @@ function PlayState:update(dt)
             score = self.score
         })
     end
+
+    if love.keyboard.wasPressed('escape') then
+        gStateMachine:change('pause', { prev = self })
+    end
 end
 
 function PlayState:render()
